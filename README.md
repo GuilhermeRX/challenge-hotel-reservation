@@ -12,4 +12,4 @@ Challenge JavaScript Hotel Reservation Test
 * `yarn install `.
 
 ### Instructions for running tests
-1. `yarn test ` or `npm test`
+1. `yarn test `
