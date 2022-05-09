@@ -13,3 +13,5 @@ Challenge JavaScript Hotel Reservation Test
 
 ### Instructions for running tests
 1. `yarn test `
+
+<img src='./tests-challenge.png' alt='tests'/>
