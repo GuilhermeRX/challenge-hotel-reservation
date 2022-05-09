@@ -38,7 +38,15 @@ const hotels = [
 ]
 
 function getCheapestHotel (input) { //DO NOT change the function's name.
-    const getClient = input.split(':')[0].toLowerCase();
+    if (!input) {
+        throw new Error('Error: Function was called with no arguments.')
+    }
+
+    const client = input.split(':')[0].toLowerCase();
+    if (client !== 'regular' && client !== 'rewards') {
+        throw new Error('Error: User type was not informed.')
+    };
+
     const getDates = input.split(',');
 
     // Get numbers of weekend days.
@@ -52,8 +60,8 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
 
     // Get fees of each hotel.
     const fees = hotels.map((hotel) => {
-        const getWeekDaysFees = hotel.weekDaysFees[getClient] * weekDays;
-        const getWeekendDaysFees = hotel.weekendFees[getClient] * weekendDays
+        const getWeekDaysFees = hotel.weekDaysFees[client] * weekDays;
+        const getWeekendDaysFees = hotel.weekendFees[client] * weekendDays
         const totalFees = getWeekDaysFees + getWeekendDaysFees
         return {name: hotel.name, totalFees, classification: hotel.classification}
     })
